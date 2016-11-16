@@ -68,6 +68,7 @@
     <Content Include="bower_components\angular\package.json" />
     <Content Include="bower_components\angular\README.md" />
     <Content Include="package.json" />
+    <Content Include="Procfile.txt" />
     <Content Include="public\images\apple-iphone-7-plus.jpeg" />
     <Content Include="public\images\asus-zenfone-3-max.jpeg" />
     <Content Include="public\images\google-pixel.jpeg" />
