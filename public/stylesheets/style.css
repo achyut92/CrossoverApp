@@ -1,0 +1,17 @@
+#productListWrapper{
+	padding: 9px;
+    float:left ;
+    overflow: hidden;
+}
+
+.cart{
+    margin-top: 10px;
+    float: left;
+    overflow: hidden;
+    border: solid gray;
+}
+
+
+.clearfix{
+	clear: both;
+}

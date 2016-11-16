@@ -1,0 +1,38 @@
+{
+  "name": "crossover-app-new",
+  "version": "0.0.0",
+   "private": true,
+   "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "description": "CrossoverAppNew",
+  "author": {
+    "name": "boonkui"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "~1.15.1",
+    "bower": "^1.8.0",
+    "connect-flash": "*",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "~1.3.3",
+    "debug": "~2.0.0",
+    "ejs": "^2.5.2",
+    "express": "~4.9.0",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.14.2",
+    "express-validator": "^2.21.0",
+    "jade": "~1.6.0",
+    "mongodb": "*",
+    "mongoose": "^4.6.7",
+    "monk": "https://github.com/vccabral/monk.git",
+    "morgan": "~1.7.0",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "serve-favicon": "~2.1.3",
+    "stripe": "^4.12.0",
+    "stylus": "0.42.3"
+  }
+}

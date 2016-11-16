@@ -1,0 +1,27 @@
+﻿<% include layout %>
+<div class="col-md-4 col-md-offset-4">
+<div class="alert alert-danger <% if(noError){%>hidden<%}%>">
+				<%= errMsg %>
+</div>
+    <form role="form" name="registerForm" method="post" action="/users/registerUser" data-ng-app="userModule" data-ng-controller="userRegisterContoller" >
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" ng-model="user.name" name="name" id="name" placeholder="Enter your name" required>
+            
+        </div>
+        <div class="form-group">
+            <label>Email address</label>
+            <input type="email" class="form-control" ng-model="user.email" name="email" id="email" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" ng-model="user.password" name="password" id="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-info">Register</button>
+        </div>
+    </form>
+</div>
+
+ <script src="/bower_components/angular/angular.min.js"></script>
+ <script src="../../javascripts/app/user/userModule.js"></script>
