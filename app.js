@@ -93,6 +93,7 @@ if (app.get('env') === 'development') {
         res.render('error', {
             title: 'Error',
             user: req.user,
+            products: req.session.cart,
             message: err.message,
             error: err
         });
@@ -106,6 +107,7 @@ app.use(function (err, req, res, next) {
     res.render('error', {
         title: 'Error',
         user: req.user,
+        products: req.session.cart,
         message: err.message,
         error: {}
     });

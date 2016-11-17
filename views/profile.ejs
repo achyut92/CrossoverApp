@@ -1,7 +1,7 @@
 ﻿<% include layout%>
 <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h2>Welcome </h2><%= user.name%>
+            <h3>Welcome <%= user.name%></h3>
             <hr />
             <h4>Here are your Orders:</h4>
             <% if(orders){%>
@@ -21,6 +21,6 @@
                         <strong>Total Price: $<%= order.cart.totalPrice %></strong>
                     </div>
                 </div>
-            <%});}%>     
+            <%});}%>  
         </div>
     </div>

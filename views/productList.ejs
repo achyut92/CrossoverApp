@@ -7,9 +7,9 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-9">
+  <div class="col-sm-12">
     <div id="productListWrapper" data-ng-app="productListModule" data-ng-controller="productListContoller">
-      <div class="row" ng-repeat="product in products">
+      <div class="row" ng-if="products" ng-repeat="product in products">
         <div class="col-sm-4 col-md-4" ng-repeat="pc in product">
           <div class="thumbnail">
             <img src="images/{{pc.imgUrl}}"/>
@@ -27,15 +27,6 @@
     </div>
   </div>
 
-
-    <div class="col-sm-3">
-      <% if(user){%>
-      <a href="/products/my-cart" class="pull-left">My Cart:</a>
-      <% if(cart){%><span class="badge pull-right">
-        <%= cart.totalQty %>
-      </span>
-      <%}}%>
-  </div>
 </div>
 
 

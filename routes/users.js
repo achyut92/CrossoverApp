@@ -23,7 +23,8 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
             cart = new Cart(order.cart);
             order.items = cart.generateArray();
         });
-        res.render('profile', { title: 'Profile', user: user, orders: orders });
+        var products = req.session.cart;
+        res.render('profile', { title: 'Profile', user: user, orders: orders, products: products });
     });
     
 });
@@ -35,7 +36,8 @@ router.get('/register', function (req, res) {
 
 router.get('/login', function (req, res) {
     var errMsg = req.flash('error')[0];
-    res.render('login', { title: 'Login', user: req.user, errMsg: errMsg, noError: !errMsg });
+    var products = req.session.cart;
+    res.render('login', { title: 'Login', user: req.user, products: products, errMsg: errMsg, noError: !errMsg });
 });
 
 //router.post('/registerUser', function (req, res) {
@@ -87,13 +89,14 @@ router.get('/login', function (req, res) {
 //});
 
 router.post('/registerUser',
-    passport.authenticate('local.register', { failureRedirect: '/users/register', failureFlash: true, successRedirect: '/users/login' }),
+    passport.authenticate('local.register', { failureRedirect: '/users/register', failureFlash: true }),
     function (req, res) {
-        res.send();
+        req.flash('success', 'Welcome ' + req.user.name);
+        res.redirect('/');
     });
 
 router.post('/loginUser',
-    passport.authenticate('local.login', { failureRedirect:'/users/login',failureFlash: true, successRedirect:'/' }),
+    passport.authenticate('local.login', { failureRedirect: '/users/login', failureFlash: true, successRedirect: '/' }),
     function (req, res) {
         res.send();
     });

@@ -1,16 +1,11 @@
-#productListWrapper{
-	padding: 9px;
-    float:left ;
-    overflow: hidden;
+body{
+    padding: 10px;
+    background-color:antiquewhite;
 }
 
-.cart{
-    margin-top: 10px;
-    float: left;
-    overflow: hidden;
-    border: solid gray;
+.thumbnail img{
+    max-height:150px;
 }
-
 
 .clearfix{
 	clear: both;

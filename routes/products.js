@@ -22,7 +22,7 @@ router.get('/add-to-cart/:id', function (req, res) {
     var cart = new Cart(req.session.cart ? req.session.cart : {});
     Product.getProductById(productId, function (err, product) {
         if (err) {
-            res.redirect('/');
+            return res.redirect('/');
         }
 
         cart.add(product, productId);
@@ -65,7 +65,7 @@ router.get('/checkout', isLoggedIn, function (req, res) {
     }
     var cart = new Cart(req.session.cart);
     var errMsg = req.flash('error')[0];
-    res.render('checkout', { title: 'Checkout', user: req.user, errMsg: errMsg, noError: !errMsg, totalPrice: cart.totalPrice });
+    res.render('checkout', { title: 'Checkout', user: req.user, products: cart, errMsg: errMsg, noError: !errMsg, totalPrice: cart.totalPrice });
 
 });
 

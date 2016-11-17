@@ -37,8 +37,14 @@
         <li><a href="/users/register">Register</a></li>
 		<li><a href="/users/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li><%}%>
 		<% if(user){%>
-		<li><a href="/users/profile">Hello <%= user.email%></a></li>
-		<li><a href="/users/logout">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li><%}%>
+		<li><a href="/products/my-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <% if(products){%><span class="badge"> <%= products.totalQty %> </span> <%}%></a></li>
+		<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" role="button" aria-haspopup="true" aria-expanded="false">Hello <%= user.email%><span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="/users/profile">Your Orders <i class="fa fa-user pull-right" aria-hidden="true"></i></a></li>
+				<li><a href="/users/logout">Logout <i class="fa fa-sign-out pull-right" aria-hidden="true"></i></a></li>
+			</ul>
+		</li><%}%>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
