@@ -13,7 +13,13 @@ router.get('/', function (req, res) {
     res.send('respond with a resource');
 });
 
-router.get('/profile', isLoggedIn, function (req, res, next) {
+
+router.get('/profile-edit', function (req, res) {
+    var user = req.user;
+    res.render('profile-edit', {user:user});
+});
+
+router.get('/orders', function (req, res) {
     var user = req.user;
     Order.getAllOrdersByUser(user, function (err, orders) {
         if (err) throw err;
@@ -23,10 +29,17 @@ router.get('/profile', isLoggedIn, function (req, res, next) {
             cart = new Cart(order.cart);
             order.items = cart.generateArray();
         });
-        var products = req.session.cart;
-        res.render('profile', { title: 'Profile', user: user, orders: orders, products: products });
+
+        res.render('orders', { user: user, orders: orders});
     });
-    
+});
+
+router.get('/profile', isLoggedIn, function (req, res, next) {
+    var user = req.user;
+    var products = req.session.cart;
+
+        res.render('profile', { title: 'Profile', user: user, products: products });
+      
 });
 
 router.get('/register', function (req, res) {
@@ -40,53 +53,6 @@ router.get('/login', function (req, res) {
     res.render('login', { title: 'Login', user: req.user, products: products, errMsg: errMsg, noError: !errMsg });
 });
 
-//router.post('/registerUser', function (req, res) {
-    
-//    var name = req.body.name;
-//    var email = req.body.email;
-//    var password = req.body.password;
-
-//    req.checkBody('name', 'Name field is required').notEmpty();
-//    req.checkBody('email', 'Email field is required').notEmpty();
-//    req.checkBody('email', 'Email is not valid').isEmail();
-//    req.checkBody('username', 'Username field is required').notEmpty();
-//    req.checkBody('password', 'Password field is required').notEmpty();
-
-//    var errors = req.validationErrors();
-
-//    if (errors) {
-//        var message = [];
-//        errors.forEach(function (error) {
-//            message.push(error.msg);
-//        });
-//        req.flash('error', message);
-//    }
-
-//    User.getUserByEmail(email, function (err, user) {
-//        if (err) throw err;
-//        if (user) {
-//            req.flash('error', 'Email already in use.');
-//            res.redirect('users/register');
-//        }
-//    });
-
-//    var newUser = new User({
-//        name: name,
-//        email: email,
-//        password: password
-//    });
-
-//    User.createUser(newUser, function (err, user) {
-//        if (err) throw err;
-//        if (user) {
-//            req.flash('success', 'You are now registered and can login')
-//            res.redirect('/');
-//        }
-//    });
-
-//    res.json(newUser.email);
-   
-//});
 
 router.post('/registerUser',
     passport.authenticate('local.register', { failureRedirect: '/users/register', failureFlash: true }),

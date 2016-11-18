@@ -39,6 +39,7 @@
     <Compile Include="models\product.js" />
     <Compile Include="models\user.js" />
     <Compile Include="public\javascripts\app\checkout.js" />
+    <Compile Include="public\javascripts\app\profile.js" />
     <Compile Include="public\javascripts\app\user\productListModule.js" />
     <Compile Include="public\javascripts\app\user\userModule.js" />
     <Compile Include="public\javascripts\_references.js" />
@@ -59,6 +60,7 @@
     <Compile Include="routes\products.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
+    <Compile Include="views\profile-edit.ejs" />
     <Content Include="bower_components\angular\.bower.json" />
     <Content Include="bower_components\angular\angular-csp.css" />
     <Content Include="bower_components\angular\angular.min.js.gzip" />
@@ -91,6 +93,7 @@
     <Content Include="views\index.ejs" />
     <Content Include="views\layout.ejs" />
     <Content Include="views\login.ejs" />
+    <Content Include="views\orders.ejs" />
     <Content Include="views\productList.ejs" />
     <Content Include="views\profile.ejs" />
     <Content Include="views\register.ejs" />
